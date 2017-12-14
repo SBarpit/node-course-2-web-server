@@ -1,5 +1,6 @@
 const express=require('express');
 const hbs=require('hbs');
+const port=process.env.PORT || 1995;
 var app=express();
 hbs.registerPartials(__dirname+'/views/partials');
 app.set('view engine','hbs');
@@ -16,7 +17,7 @@ app.get('/',(req,res)=>{
 // 	'NetSurfing']
 res.render('home.hbs',{
 	pageTitle:'Home Page',
-	mgs:'Wellcome to my website',
+	mgs:'Welcome to my website',
 	});
 
 });
@@ -33,6 +34,6 @@ app.get('/bad',(req,res)=>{
 		status_code:'404'
 	});
 });
-app.listen(1995,()=>{
-	console.log('Server is up on port no 1995');
+app.listen(port,()=>{
+	console.log(`Server is up on port no ${port}`);
 });
